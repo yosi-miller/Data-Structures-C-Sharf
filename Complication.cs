@@ -47,7 +47,7 @@ namespace Practice_Exercises
             return false;
         }
 
-        public static int FindMaxElement(int[] array)
-        { }
+        //public static int FindMaxElement(int[] array)
+        //{ }
     }
 }

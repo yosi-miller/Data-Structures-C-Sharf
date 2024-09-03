@@ -129,27 +129,52 @@ namespace Practice_Exercises
             if (Head == null)
             { return; }
 
+            int count = 0;
+            Node node = Head;
+            while (node.getNext() != null)
+            {
+                if (count == index)
+                {
+                    node.setNext(node.getNext().getNext());
+                    return;
+                }
+            }
+        }
+
+        // Method to find by value
+        public bool Find(int data)
+        {
+            if (Head == null)
+            { return false; }
+
             Node node = Head;
             while (node.getNext() != null)
             {
                 if (node.getNext().getValue() == data)
                 {
-                    node.setNext(node.getNext().getNext());
+                    return true;
                 }
+                node = node.getNext();
             }
-            return;
-        }
-
-        // Method to find by value
-        public Find(data)
-        {
-
+            return false;
         }
 
         // Method to get a value by  index
-        public Get(data)
+        public int Get(int index)
         {
+            if (Head == null)
+            { return -1; }
 
+            int count = 0;
+            Node node = Head;
+            while (node.getNext() != null)
+            {
+                if (count == index)
+                {
+                    return node.getValue();
+                }
+            }
+            return -1;
         }
     }
 }

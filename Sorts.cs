@@ -75,7 +75,7 @@ namespace Practice_Exercises
             return array;
         }
 
-        public static int[] MergeSort(int[] array)
-        { }
+        //public static int[] MergeSort(int[] array)
+        //{ }
     }
 }
