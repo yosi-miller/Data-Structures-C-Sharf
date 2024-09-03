@@ -4,37 +4,48 @@ namespace Practice_Exercises
 {
     public class Node
     {
+        // O(1)
         private int Value;
+        // O(1)
         private Node Next;
 
+        // O(1)
         public Node(int data)
         {
             Value = data;
             Next = null;
         }
 
+        // O(1)
         public int getValue() { return Value; }
+        // O(1)
         public Node getNext() { return Next; }
 
+        // O(1)
         public void setValue(int value) { Value = value; }
+        // O(1)
         public void setNext(Node next) { Next = next; }
     }
 
 
     public class LinkedList
     {
-        public Node Head;
+        // O(1)
+        public Node? Head;
 
+        // O(1)
         public LinkedList()
         {
             Head = null;
         }
 
-        public LinkedList(Node data)
+        // O(1)
+        public LinkedList(int data)
         {
-            Head = data;
+            Head = new Node(data);
         }
 
+        // O(N)
         // Method to add to  the end of the list
         public void Add(int data)
         {
@@ -55,31 +66,29 @@ namespace Practice_Exercises
             return;
         }
 
-
-        public void Display()
+        // O(N)
+        public string Display()
         {
             if (Head == null)
-            {
-                Console.WriteLine("Don't have a value");
-                return;
-            }
-
+                return "Don't have a value";
+            
             Node node = Head.getNext();
-            Console.Write(Head.getValue());
+            string result = Head.getValue().ToString();
             while (node != null)
             {
-                Console.Write(" -> " + node.getValue());
+                result += "-> " + node.getValue().ToString();
                 node = node.getNext();
             }
-            //1-> 2-> 5-> - 5-> 5
+            return result;
         }
 
+        // O(N)
         public int Length()
         {
             if (Head == null)
                 return -1;
 
-            int count = 1;
+            int count = 0;
             Node node = Head.getNext();
             while (node != null)
             {
@@ -98,11 +107,12 @@ namespace Practice_Exercises
             Node node = Head;
             while (node.getNext() != null)
             {
-                if (node.getNext().getValue() == data)
+                if (node.getValue() == data)
                 {
                     node.setNext(node.getNext().getNext());
                     return;
                 }
+                node = node.getNext();
             }
         }
 
@@ -115,7 +125,7 @@ namespace Practice_Exercises
             Node node = Head;
             while (node.getNext() != null)
             {
-                if (node.getNext().getValue() == data)
+                if (node.getValue() == data)
                 {
                     node.setNext(node.getNext().getNext());
                 }
@@ -141,6 +151,7 @@ namespace Practice_Exercises
             }
         }
 
+        // O(N)
         // Method to find by value
         public bool Find(int data)
         {
@@ -150,7 +161,7 @@ namespace Practice_Exercises
             Node node = Head;
             while (node.getNext() != null)
             {
-                if (node.getNext().getValue() == data)
+                if (node.getValue() == data)
                 {
                     return true;
                 }
@@ -159,7 +170,8 @@ namespace Practice_Exercises
             return false;
         }
 
-        // Method to get a value by  index
+        // O(N)
+        // Method to insert a value at an indexget a value by  index
         public int Get(int index)
         {
             if (Head == null)
@@ -173,6 +185,8 @@ namespace Practice_Exercises
                 {
                     return node.getValue();
                 }
+                count++;
+                node = node.getNext();
             }
             return -1;
         }
