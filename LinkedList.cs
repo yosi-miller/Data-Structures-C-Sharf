@@ -96,7 +96,7 @@ namespace Practice_Exercises
         }
 
 
-
+        // O(N)
         // Method to remove the first value
         public void RemoveValue(int data)
         {
@@ -133,6 +133,7 @@ namespace Practice_Exercises
             }
         }
 
+        // O(N)
         // Method to remove the first value
         public void RemoveAllValues(int data)
         {
@@ -163,7 +164,7 @@ namespace Practice_Exercises
             return;
         }
 
-
+        // O(N)
         // Method to remove the value in an index
         public void RemoveIndex(int index)
         {
