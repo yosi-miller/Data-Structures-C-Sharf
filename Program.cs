@@ -1,4 +1,7 @@
 ﻿using Practice_Exercises;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Text.Json;
+using Practice_Exercises.Models;
 
 //using LinkedList;
 //LinkedList linkedList = new LinkedList(1);
@@ -30,6 +33,23 @@ namespace MyApp
         static void Main(string[] args)
 
         {
+            //string jsonString = File.ReadAllText("C:\\Users\\y0504\\codeProject\\IDF - Kodcode\\Data Engineer\\Practice Exercises\\Tree.json");
+            //var dataDictionary = JsonSerializer.Deserialize<Dictionary<string, DataTreeModel>>(jsonString);
+            //foreach (var item in dataDictionary)
+            //{
+            //    Console.WriteLine($"Key: {item.Key}, Value: {JsonSerializer.Serialize(item.Value)}");
+            //}
+            //// Binary Tree Tests
+            //BinaryTree tree = new BinaryTree();
+            //tree.Insert(1);
+            //tree.Insert(2);
+            //tree.Insert(3);
+
+            //Console.WriteLine(tree.Find(1));
+            //Console.WriteLine(tree.Find(10));
+            //Console.WriteLine(tree.GetMax());
+            //Console.WriteLine(tree.GetMin());
+
             // stack Tests
             Stack stack = new Stack();
             stack.Push(1);
@@ -37,6 +57,13 @@ namespace MyApp
             stack.Push(3);
             Console.WriteLine(stack.Display());
             Console.WriteLine(stack.Length());
+            int? result = stack.Pop();
+            Console.WriteLine(result);
+            Console.WriteLine(stack.Display());
+            Console.WriteLine(stack.Length());
+            Console.WriteLine(stack.Peak());
+            Console.WriteLine(stack.Length());
+
 
             //LinkedList Tests
             //    int totalTests = 0;

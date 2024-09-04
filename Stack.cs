@@ -8,6 +8,7 @@
 
         public Stack(int head) { Head = new Node(head); }
 
+        // O(1)
         public void Push(int data)
         {
             Node newNode = new Node(data);
@@ -39,6 +40,29 @@
             return result;
         }
 
+        // O(1)
+        public int? Pop()
+        {
+            if(Head == null)
+                return null;
+
+            int result = Head.getValue();
+            Head = Head.getNext();
+            Lenghe--;
+            return result;
+        }
+
+        // O(1)
+        public int? Peak()
+        {
+            if (Head == null)
+                return null;
+
+            int result = Head.getValue();
+            return result;
+        }
+
+        // O(1)
         public int Length()
         {
             return Lenghe;
