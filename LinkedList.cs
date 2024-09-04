@@ -70,13 +70,13 @@ namespace Practice_Exercises
         public string Display()
         {
             if (Head == null)
-                return "Don't have a value";
+                return "";
             
             Node node = Head.getNext();
             string result = Head.getValue().ToString();
             while (node != null)
             {
-                result += "-> " + node.getValue().ToString();
+                result += " -> " + node.getValue().ToString();
                 node = node.getNext();
             }
             return result;
@@ -85,11 +85,8 @@ namespace Practice_Exercises
         // O(N)
         public int Length()
         {
-            if (Head == null)
-                return -1;
-
             int count = 0;
-            Node node = Head.getNext();
+            Node node = Head;
             while (node != null)
             {
                 count++;
@@ -98,21 +95,41 @@ namespace Practice_Exercises
             return count;
         }
 
-    // Method to remove the first value
+
+
+        // Method to remove the first value
         public void RemoveValue(int data)
         {
             if (Head == null)
-                { return; }
-
-            Node node = Head;
-            while (node.getNext() != null)
             {
-                if (node.getValue() == data)
+                return;
+            }
+
+            if (Head.getValue() == data)
+            {
+                Head = Head.getNext();
+                return;
+            }
+
+            Node current = Head;
+            Node previous = null;
+
+            while (current != null)
+            {
+                if (current.getValue() == data)
                 {
-                    node.setNext(node.getNext().getNext());
+                    if (current.getNext() == null)
+                    { // אם זה האיבר האחרון
+                        previous.setNext(null);
+                    }
+                    else
+                    {
+                        previous.setNext(current.getNext());
+                    }
                     return;
                 }
-                node = node.getNext();
+                previous = current;
+                current = current.getNext();
             }
         }
 
@@ -120,75 +137,105 @@ namespace Practice_Exercises
         public void RemoveAllValues(int data)
         {
             if (Head == null)
-            { return; }
-
-            Node node = Head;
-            while (node.getNext() != null)
             {
-                if (node.getValue() == data)
+                return;
+            }
+
+            // טיפול במקרה אם יש כמה אברים עם אותו ערך בתחילת הרשימה
+            while (Head != null && Head.getValue() == data)
+            {
+                Head = Head.getNext();
+            }
+
+            Node current = Head;
+
+            while (current != null && current.getNext() != null)
+            {
+                if (current.getNext().getValue() == data)
                 {
-                    node.setNext(node.getNext().getNext());
+                    current.setNext(current.getNext().getNext());
+                }
+                else
+                {
+                    current = current.getNext();
                 }
             }
             return;
         }
 
+
         // Method to remove the value in an index
         public void RemoveIndex(int index)
         {
             if (Head == null)
-            { return; }
+            {
+                return;
+            }
+
+            if (index == 0)
+            {
+                Head = Head.getNext();
+                return;
+            }
 
             int count = 0;
-            Node node = Head;
-            while (node.getNext() != null)
+            Node current = Head;
+            Node previous = null;
+
+            while (current != null)
             {
                 if (count == index)
                 {
-                    node.setNext(node.getNext().getNext());
+                    // אם זה האיבר שמצאנו באינדקס הרצוי, נבצע מחיקה
+                    if (previous != null)
+                    {
+                        previous.setNext(current.getNext());
+                    }
                     return;
                 }
+                previous = current;
+                current = current.getNext();
+                count++;
             }
         }
+
 
         // O(N)
         // Method to find by value
-        public bool Find(int data)
+        public int Find(int data)
         {
-            if (Head == null)
-            { return false; }
-
+            int index = 0;
             Node node = Head;
-            while (node.getNext() != null)
+            while (node != null)
             {
                 if (node.getValue() == data)
                 {
-                    return true;
+                    return index;
                 }
                 node = node.getNext();
+                index++;
             }
-            return false;
+            return -1; // Element not found
         }
+
 
         // O(N)
         // Method to insert a value at an indexget a value by  index
         public int Get(int index)
         {
-            if (Head == null)
-            { return -1; }
-
             int count = 0;
             Node node = Head;
-            while (node.getNext() != null)
+            while (node != null)
             {
                 if (count == index)
                 {
                     return node.getValue();
                 }
-                count++;
                 node = node.getNext();
+                count++;
             }
-            return -1;
+            return -1; // Index out of range
         }
+
     }
 }
