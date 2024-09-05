@@ -19,5 +19,6 @@ namespace Practice_Exercises
             Left = null;
             Right = null;
         }
+    
     }
 }

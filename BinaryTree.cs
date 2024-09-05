@@ -45,11 +45,14 @@
 
         public int? GetMax()
         {
-            TreeNode root = Root.Right;
+            if (Root == null)
+                return null;
+
+            TreeNode root = Root;
             while (root.Right != null)
             {
-                if (root.Right == null)
-                    return -1;
+                //if (root.Right == null)
+                //    return -1;
                 root = root.Right;
             }
             return root.Value;

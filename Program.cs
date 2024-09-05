@@ -39,30 +39,35 @@ namespace MyApp
             //{
             //    Console.WriteLine($"Key: {item.Key}, Value: {JsonSerializer.Serialize(item.Value)}");
             //}
-            //// Binary Tree Tests
-            //BinaryTree tree = new BinaryTree();
-            //tree.Insert(1);
-            //tree.Insert(2);
-            //tree.Insert(3);
+            // Binary Tree Tests
+            BinaryTree tree = new BinaryTree();
 
-            //Console.WriteLine(tree.Find(1));
-            //Console.WriteLine(tree.Find(10));
-            //Console.WriteLine(tree.GetMax());
-            //Console.WriteLine(tree.GetMin());
+            tree.Insert(10);
+            tree.Insert(3);
+            tree.Insert(6);
+            tree.Insert(1);
+            tree.Insert(2);
+            tree.Insert(7);
+            tree.Insert(4);
 
-            // stack Tests
-            Stack stack = new Stack();
-            stack.Push(1);
-            stack.Push(2);
-            stack.Push(3);
-            Console.WriteLine(stack.Display());
-            Console.WriteLine(stack.Length());
-            int? result = stack.Pop();
-            Console.WriteLine(result);
-            Console.WriteLine(stack.Display());
-            Console.WriteLine(stack.Length());
-            Console.WriteLine(stack.Peak());
-            Console.WriteLine(stack.Length());
+            Console.WriteLine(tree.Find(1));
+            Console.WriteLine(tree.Find(10));
+            Console.WriteLine(tree.GetMax());
+            Console.WriteLine(tree.GetMin());
+
+            //// stack Tests
+            //Stack stack = new Stack();
+            //stack.Push(1);
+            //stack.Push(2);
+            //stack.Push(3);
+            //Console.WriteLine(stack.Display());
+            //Console.WriteLine(stack.Length());
+            //int? result = stack.Pop();
+            //Console.WriteLine(result);
+            //Console.WriteLine(stack.Display());
+            //Console.WriteLine(stack.Length());
+            //Console.WriteLine(stack.Peak());
+            //Console.WriteLine(stack.Length());
 
 
             //LinkedList Tests
