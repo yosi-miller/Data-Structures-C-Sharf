@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practice_Exercises
+namespace Practice_Exercises.Homework
 {
     public class Complication
     {
