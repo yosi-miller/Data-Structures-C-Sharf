@@ -8,6 +8,7 @@ namespace Practice_Exercises.Homework
 {
     public class Complication
     {
+        // Q1
         public static int CalculateOddSum(int[] array)
         {
             int sum = 0;
@@ -23,6 +24,7 @@ namespace Practice_Exercises.Homework
             return sum;
         }
 
+        // Q2
         public static (int max, int max1) FindMaximumTwo(int[] array)
         {
             int max = array[0];
@@ -37,6 +39,7 @@ namespace Practice_Exercises.Homework
             return (max, max1);
         }
 
+        // Q3
         public bool ContainsNumber(int[] array, int number)
         {
             for (int i = 0; i < array.Length; i++)
